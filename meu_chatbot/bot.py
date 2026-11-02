@@ -4,7 +4,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer, ListTrainer
 # 1. Instanciando o robô
 # Se o banco de dados 'db.sqlite3' não existir, ele será criado automaticamente.
 
-bot = ChatBot("AssistenteSENAI", read_only=False)
+bot = ChatBot("Assistente", read_only=False)
 
 
 
@@ -16,11 +16,11 @@ trainer_lista = ListTrainer(bot)
 # Lista com o diálogo de treino (Pergunta -> Resposta)
 conversa_customizada = [
     "Olá",
-    "Olá! Como posso ajudar você hoje?",
+    "Olá! Como posso ajudar você hoje meu amigo?",
     "Quais cursos você oferece?",
-    "Oferecemos cursos de Inteligência Artificial, Programação e Banco de Dados.",
-    "Qual a duração do curso de IA?",
-    "O curso de IA tem carga horária de 48 horas.",
+    "Oferecemos cursos de Python, Java e C#.",
+    "Qual a duração do curso de Python?",
+    "O curso de Python tem carga horária de 52 horas.",
     "Obrigado",
     "Por nada! Estou à disposição.",
 ]
@@ -47,14 +47,14 @@ while True:
 
     # Verifica se o usuário quer encerrar o programa
     if pergunta.lower().strip() in ["sair", "exit", "quit"]:
-        print("🤖 AssistenteSENAI: Até logo e bons estudos!")
+        print("🤖 Assistente: Até logo e bons estudos!")
         break
 
     # O robô calcula a melhor resposta na base de dados
     resposta = bot.get_response(pergunta)
 
     # Exibe a resposta na tela
-    print(f"🤖 AssistenteSENAI: {resposta}\n")
+    print(f"🤖 Assistente: {resposta}\n")
 
 with open("dados_conversa.txt", encoding='utf-8') as arquivo:
     for linha in arquivo:
